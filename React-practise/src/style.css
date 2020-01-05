@@ -1,0 +1,15 @@
+ul#myList {
+    text-align: center;
+    background: #a08585;
+    padding: 40px;
+}
+#myList li {
+    list-style-position: inside;
+    color: #efff00;
+    font-size: 26px;
+}
+#myList li ol li {
+    color: green;
+}
+
+
