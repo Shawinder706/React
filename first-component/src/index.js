@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(myCmp('apple','mango','grapes','banana'), document.getElementById('root'));
+ReactDOM.render(<App/>, document.getElementById('root'));
 
 function myCmp(apple,mango,grapes,banana){
     return(
