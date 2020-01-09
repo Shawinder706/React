@@ -1,64 +1,88 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import Person from './person'
 import './App.css';
-
-
+import Person from './person';
 class App extends Component
 {
-
     state = {
-        person: [{
-            name: "Aman", age: 21
-        },
-        { name: "Ravi", age: 22 },
-        ]
+        persons: [
+            { id: 'asfa1', name: 'Max', age: 28 },
+            { id: 'vasdf1', name: 'Manu', age: 29 },
+            { id: 'asdf11', name: 'Stephanie', age: 26 }
+        ],
+        otherState: 'some other value',
+        showPersons: false
     }
 
-    nameChangeHandler = (newName) =>
+
+    nameChangedHandler = (event, id) =>
     {
-        this.setState({
-            person: [{
-                name: newName, age: 21
-            },
-            { name: "Ravi verma", age: 22 },
-            ]
-        })
+        const personIndex = this.state.persons.findIndex(p =>
+        {
+            return p.id === id;
+        });
+
+        console.log(personIndex)
+        const person = {
+            ...this.state.persons[personIndex]
+        };
+        //console.log(persons)
+        console.log(person)
+        // const person = Object.assign({},
+        // this.state.persons[personIndex];
+        person.name = event.target.value;
+        const persons = [...this.state.persons];
+        persons[personIndex] = person;
+        this.setState({ persons: persons });
+
+
     }
 
-    switchNameHandler = (event) =>
+
+    deletePersonHandler = (personIndex) =>
     {
-        this.setState({
-
-            person: [{
-                name: "Aman", age: 21
-            },
-            { name: event.target.value, age: 22 },
-            ]
-
-        })
+        // const persons = this.state.persons.slice();
+        const personsCopy = [...this.state.persons];
+        personsCopy.splice(personIndex, 1);
+        this.setState({ persons: personsCopy });
     }
-
-
+    togglePersonsHandler = () =>
+    {
+        const doesShow = this.state.showPersons;
+        this.setState({ showPersons: !doesShow });
+    }
     render()
     {
+        const style = {
+            backgroundColor: 'white',
+            font: 'inherit',
+            border: '1px solid blue',
+            padding: '8px',
+            cursor: 'pointer'
+        };
+        let persons = null;
+        if (this.state.showPersons) {
+            persons = (
+                <div>
+                    {this.state.persons.map((person, index) =>
+                    {
+                        return <Person click={() => this.deletePersonHandler(index)} name={person.name} age={person.age}
+                            key={person.id} changed={(event) => this.nameChangedHandler(event, person.id)} />
+                    })}
+                </div>
+            );
+        }
         return (
             <div className="App">
-
-                <Person name={this.state.person[0].name} age={this.state.person[0].age} click={this.nameChangeHandler.bind(this, 'method refernce')}></Person>
-                <Person name={this.state.person[1].name} age={this.state.person[1].age} change={this.switchNameHandler}></Person>
-                {/* <button onClick={() => {return this.nameChangeHandler("myname")} }>click me</button> */}
-                {/* <button onClick={this.nameChangeHandler.bind(this,'max') } >click me</button> */}
-                <button onClick={this.nameChangeHandler.bind(this, 'max')} >click me</button>
-
-                {/* This way is not working beacause when js render in browser function executes automatically
-<button onClick={ this.nameChangeHandler("myname") }>click me</button> 
-*/}
-
-
+                <h1>Hi, I'm a React App</h1>
+                <p>This is really working!</p>
+                <button
+                    style={style}
+                    onClick={this.togglePersonsHandler}>Toggle Persons</button>
+                {persons}
             </div>
         );
+
     }
 }
-
 export default App;
+
