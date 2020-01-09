@@ -2,7 +2,18 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 
+const myTest = () =>
+{
+    return (
+        <div>
+            <App name="max"></App>
+        </div>
 
+    )
+}
+
+
+export default myTest;
 
 //handle props in class
 class App extends React.Component
@@ -26,7 +37,7 @@ class App extends React.Component
     {
         return (
             <div>
-                <p>saving account balance is: {this.state.savings.accountBalance}</p>
+                <p>{this.props.name} saving account balance is: {this.state.savings.accountBalance}</p>
                 <p>Checking Account {this.state.checking.balance.accountBalance}</p>
             </div>
         )
@@ -34,5 +45,3 @@ class App extends React.Component
 
 }
 
-
-export default App
