@@ -16,7 +16,7 @@ class Hello extends React.Component
     render()
     {
         return (
-            <div>
+            <div className="App">
                 <p>{this.props.name}</p>
             </div>
         )
