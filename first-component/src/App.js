@@ -25,10 +25,9 @@ class App extends Component
         const person = {
             ...this.state.persons[personIndex]
         };
-        //console.log(persons)
+
         console.log(person)
-        // const person = Object.assign({},
-        // this.state.persons[personIndex];
+        console.log(personIndex)
         person.name = event.target.value;
         const persons = [...this.state.persons];
         persons[personIndex] = person;
@@ -48,6 +47,7 @@ class App extends Component
     togglePersonsHandler = () =>
     {
         const doesShow = this.state.showPersons;
+        console.log(doesShow)
         this.setState({ showPersons: !doesShow });
     }
     render()
