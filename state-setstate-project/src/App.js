@@ -55,7 +55,6 @@ class App extends React.Component
                 enrolledStudents: this.state.enrolledStudents + parseInt(val)
             })
         } else if (student === "listed") {
-            console.log("2 " + student)
             this.setState({
                 waitListedStudents: this.state.waitListedStudents + parseInt(val)
             })
@@ -69,20 +68,21 @@ class App extends React.Component
     {
         return (
             <Students
+                // initial students
                 enrolled={this.state.enrolledStudents}
                 waitlist={this.state.waitListedStudents}
+
                 // Enrolled user operations
                 addStudent={this.addOneStudents.bind(this, 'enrolled')}
                 onchange={(event) => this.changeStudent(event, 'enrolled')}
                 click={this.state.addBulkEnrolledStu !== 0 && this.state.addBulkEnrolledStu ? this.addBulkStudents.bind(this, this.state.addBulkEnrolledStu, "enrolled") : null}
+
                 // wait listed user operations
                 onchangeListed={(event) => this.changeStudent(event, 'listed')}
                 listClick={this.addOneStudents.bind(this, 'listed')}
                 listBulkStu={this.state.addBulkWaitlistStu !== 0 && this.state.addBulkWaitlistStu ? this.addBulkStudents.bind(this, this.state.addBulkWaitlistStu, "listed") : null}
 
-            >
-
-            </Students>
+            ></Students>
         )
     }
 
