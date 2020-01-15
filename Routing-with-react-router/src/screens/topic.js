@@ -1,11 +1,11 @@
 import React from 'react'
 
 
-const Topic = () =>
+const Topic = ({ match }) =>
 {
     return (
         <div>
-            <h1>Topic</h1>
+            <h1>Topic {match.url} </h1>
         </div>
     )
 }

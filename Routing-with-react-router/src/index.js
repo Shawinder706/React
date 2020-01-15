@@ -24,6 +24,7 @@ const App = () => (
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
             <Route path="/topics" component={Topics} />
+
         </div>
     </Router>
 );

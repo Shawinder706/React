@@ -23,7 +23,6 @@ console.log(pathName)
 
 ReactDOM.render(<MainComponent path={pathName} />, document.getElementById("root"))
 
-//window.addEventListener('popstate', () => { pathName = window.location.pathname })
 window.addEventListener('popstate', () =>
 {
     pathname = window.location.pathname;

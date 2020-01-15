@@ -64,6 +64,7 @@ class App extends Component
 
     return (
       <div className={classes.App}>
+        {console.log("classes.App " + classes.App)}
         <Cockpit
           appTitle={this.props.title}
           showPersons={this.state.showPersons}
