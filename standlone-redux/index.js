@@ -32,13 +32,4 @@ store.subscribe(() =>
 // Dispatching Action
 store.dispatch({ type: 'INC_COUNTER' });
 store.dispatch({ type: 'ADD_COUNTER', value: 10 });// (type , payload) params of dispatch
-console.log(st
-    
-    
-    
-    
-    
-    
-    
-    
-    ore.getState());
+console.log(store.getState());
