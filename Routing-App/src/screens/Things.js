@@ -14,7 +14,6 @@ const Thing = ({ match }) =>
     return (
         <div>
             <h1>{item}</h1>
-
         </div>
     )
 }
